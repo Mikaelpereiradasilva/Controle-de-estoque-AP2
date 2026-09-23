@@ -10,3 +10,7 @@ def limpa_tela():
 
 def timer():
     time.sleep(3)
+
+def opcao_invalida():
+    print("\nOpção inválida! Por favor, digite um número válido.\n")
+    timer()

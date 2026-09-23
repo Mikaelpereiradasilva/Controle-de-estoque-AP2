@@ -18,7 +18,7 @@ def menu_principal():
         elif opcao == '0':
             break
         else:
-            print("\nOpção inválida! Por favor, digite 0, 1 ou 2.\n")
+            util.opcao_invalida()
 
 def autorizacaoCompras():
     print("em breve");

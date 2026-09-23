@@ -1,4 +1,4 @@
-import seduc
+import crede
 import escolas
 
 def menuPrincipal():
@@ -12,7 +12,7 @@ def menuPrincipal():
         
         if opcao == '1':
             print("\nSistema da SEDUC...\n")
-            # seduc.menu_principal()
+            # crede.menu_principal()
         elif opcao == '2':
             print("\nSistema Escolar...\n")
             escolas.menu_principal() 

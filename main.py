@@ -4,14 +4,14 @@ import escolas
 def menuPrincipal():
     while True:
         print("=====Usuários=====");
-        print("1 - SEDUC.");
+        print("1 - CREDE.");
         print("2 - Escolas");
         print("0 - Sair");
         
         opcao = input("Selecione o tipo de acesso: ")
         
         if opcao == '1':
-            print("\nSistema da SEDUC...\n")
+            print("\nSistema da CREDE...\n")
             # crede.menu_principal()
         elif opcao == '2':
             print("\nSistema Escolar...\n")

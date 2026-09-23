@@ -1,18 +1,20 @@
 import crede
 import escolas
+import util
 
 def menuPrincipal():
     while True:
-        print("=====Usuários=====");
-        print("1 - CREDE.");
+        util.limpa_tela();
+        util.cabecalho();
+        print("- Como deseja acessar? -");
+        print("1 - CREDE");
         print("2 - Escolas");
         print("0 - Sair");
         
         opcao = input("Selecione o tipo de acesso: ")
         
         if opcao == '1':
-            print("\nSistema da CREDE...\n")
-            # crede.menu_principal()
+            crede.menu_principal()
         elif opcao == '2':
             print("\nSistema Escolar...\n")
             escolas.menu_principal() 

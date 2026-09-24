@@ -126,3 +126,4 @@ def entrar_escola():
     util.timer()
 
 escolha_login()
+print()

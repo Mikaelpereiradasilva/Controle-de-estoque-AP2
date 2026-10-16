@@ -3,31 +3,8 @@ import escolas
 import util
 
 
-
-def menuPrincipal():
-    while True:
-        util.limpa_tela();
-        util.cabecalho();
-        print("- Como deseja acessar? -");
-        print("1 - CREDE");
-        print("2 - Escolas");
-        print("0 - Sair");
-        
-        opcao = input("Selecione o tipo de acesso: ")
-        
-        if opcao == '1':
-            crede.menu_principal()
-        elif opcao == '2':
-            print("\nSistema Escolar...\n")
-            escolas.menu_principal() 
-        elif opcao == '0':
-            print("\nA encerrar o sistema principal. Até breve!\n")
-            break
-        else:
-            print("\nOpção inválida! Por favor, digite 0, 1 ou 2.\n")
-
 # Aqui está o menu principal de login, onde o usuário pode escolher entre acessar como CREDE ou como Escola.
-def escolha_login():
+def menu_principal():
     opcao = 3
     while opcao != 0:
         util.limpa_tela()
@@ -61,11 +38,11 @@ def login_crede():
     print('0 - Voltar')
     opcao = int(input("Selecione uma opção: "))
     if opcao == 1:
-        cadastro_crede()
+        adm_cadastro_crede()
     elif opcao == 2:
         entrar_crede()
     elif opcao == 0:
-        escolha_login()
+        menu_principal()
     else:
         util.opcao_invalida()
     util.timer()
@@ -84,12 +61,23 @@ def login_escola():
     elif opcao == 2:
         entrar_escola()
     elif opcao == 0:
-        escolha_login()
+        menu_principal()
     else:
         util.opcao_invalida()
     util.timer()
 
 #Sessão de cadastro para CREDE e Escola, onde os usuários podem se registrar no sistema. Atualmente, essas funções estão em desenvolvimento e exibem mensagens de "em breve".
+def adm_cadastro_crede():
+    util.limpa_tela()
+    util.cabecalho()
+    print("\n- Cadastro CREDE -\n")
+
+    print("Apenas para usuários autorizados.\n")
+    prosseguir = util.senha_administrador()
+    if prosseguir:
+        cadastro_crede()
+    util.timer()
+
 def cadastro_crede():
     util.limpa_tela()
     util.cabecalho()
@@ -97,6 +85,7 @@ def cadastro_crede():
     
     print("\nCadastro de CREDE em breve...\n")
     util.timer()
+
 
 def cadastro_escola():
     util.limpa_tela()
@@ -125,5 +114,5 @@ def entrar_escola():
 
     util.timer()
 
-escolha_login()
+menu_principal()
 print()

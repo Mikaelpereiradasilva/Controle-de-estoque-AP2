@@ -14,3 +14,14 @@ def timer():
 def opcao_invalida():
     print("\nOpção inválida! Por favor, digite um número válido.\n")
     timer()
+
+def senha_administrador():
+    senha = input("Digite a senha do administrador: ")
+    if senha == "1234":
+        print("Acesso concedido!")
+        timer()
+        return True
+    else:
+        print("Senha incorreta! Acesso negado.")
+        timer()
+        return False

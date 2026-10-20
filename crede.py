@@ -1,4 +1,5 @@
 import util
+import main
 
 def menu_principal():
     while True:

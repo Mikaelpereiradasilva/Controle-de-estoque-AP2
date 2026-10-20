@@ -29,7 +29,7 @@ def menuPrincipal():
 # Aqui está o menu principal de login, onde o usuário pode escolher entre acessar como CREDE ou como Escola.
 def escolha_login():
     opcao = 3
-    while opcao != 0:
+    while opcao != '0':
         util.limpa_tela()
         util.cabecalho()
         print('Seja Bem-Vindo a o Sistema de Controle de Estoque Escolar!\nComo deseja acessar?')
@@ -38,13 +38,13 @@ def escolha_login():
         print("2 - Sou Escola")
         print("0 - Sair")
         print()
-        opcao = int(input("Selecione uma opção: "))
+        opcao = input("Selecione uma opção: ")
 
-        if opcao == 1:
+        if opcao == '1':
             login_crede()
-        elif opcao == 2:
+        elif opcao == '2':
             login_escola()
-        elif opcao == 0:
+        elif opcao == '0':
             print("\nEncerrando o sistema. Até logo!\n")
             util.timer()
         else:
@@ -53,22 +53,23 @@ def escolha_login():
 
 #Aqui está o menu de login para usuários do tipo CREDE
 def login_crede():
-    util.limpa_tela()
-    util.cabecalho()
-    print("\n- Login CREDE -\n")
-    print('1 - Cadastar-se como CREDE')
-    print('2 - Já tenho cadastro')
-    print('0 - Voltar')
-    opcao = int(input("Selecione uma opção: "))
-    if opcao == 1:
-        cadastro_crede()
-    elif opcao == 2:
-        entrar_crede()
-    elif opcao == 0:
-        escolha_login()
-    else:
-        util.opcao_invalida()
-    util.timer()
+    while True:
+        util.limpa_tela()
+        util.cabecalho()
+        print("\n- Login CREDE -\n")
+        print('1 - Cadastar-se como CREDE')
+        print('2 - Já tenho cadastro')
+        print('0 - Voltar')
+        opcao = input("Selecione uma opção: ")
+        if opcao == '1':
+            cadastro_crede()
+        elif opcao == '2':
+            entrar_crede()
+        elif opcao == '0':
+            break
+        else:
+            util.opcao_invalida()
+        util.timer()
 
 #Aqui está o menu de login para usuários do tipo Escola
 def login_escola():
@@ -78,12 +79,12 @@ def login_escola():
     print('1 - Cadastar-se como Escola')
     print('2 - Já tenho cadastro')
     print('0 - Voltar')
-    opcao = int(input("Selecione uma opção: "))
-    if opcao == 1:
+    opcao = input("Selecione uma opção: ")
+    if opcao == '1':
         cadastro_escola()
-    elif opcao == 2:
+    elif opcao == '2':
         entrar_escola()
-    elif opcao == 0:
+    elif opcao == '0':
         escolha_login()
     else:
         util.opcao_invalida()

@@ -107,29 +107,39 @@ def cadastro_crede():
     credes = carregar_crede()
 
     print("\n- Cadastro CREDE -\n")
+    
+    cnpj = input("Digite o CNPJ da CREDE: ")
 
-    codigo = input("Digite o código oficial da CREDE: ")
-
+    cnpj = util.padronizar_cnpj(cnpj)
+    
+    while True:
+        if cnpj is not None:
+            break
+        else:
+            print("\nCNPJ inválido! Por favor, digite um CNPJ válido.\n")
+            cnpj = input("Digite o CNPJ da CREDE: ")
+            cnpj = util.padronizar_cnpj(cnpj)
+    
     for cadastro in credes:
-        if cadastro["codigo"] == codigo:
-            print("Código já cadastrado.")
+        if cadastro["cnpj"] == cnpj:
+            print("CNPJ já cadastrado.")
             util.timer()
             return
+
+    
 
     nome = input("Digite o nome da CREDE: ")
     senha = input("Crie a senha de acesso: ")
 
     print("\n- Confira os dados inseridos -\n")
-    print(f"Código: {codigo}")
+    print(f"CNPJ: {cnpj}")
     print(f"Nome: {nome}")
 
-    opcao = input(
-        "Pressione 1 para confirmar ou 0 para cancelar: "
-    )
+    opcao = input("\nPressione 1 para confirmar ou 0 para cancelar: \n")
 
     if opcao == '1':
         credes.append({
-            "codigo": codigo,
+            "cnpj": cnpj,
             "nome": nome,
             "senha": senha
         })
@@ -174,7 +184,34 @@ def salvar_crede(credes):
             ensure_ascii=False
         )
 
+# Entrada da CREDE
+def entrar_crede():
+    util.limpa_tela()
+    util.cabecalho()
 
+    print("\n- Entrar como CREDE -\n")
+
+    cnpj = input("Digite o CNPJ da CREDE: ")
+    cnpj = util.padronizar_cnpj(cnpj)
+    while True:
+            if cnpj is not None:
+                break
+            else:
+                print("\nCNPJ inválido! Por favor, digite um CNPJ válido.\n")
+                cnpj = input("Digite o CNPJ da CREDE: ")
+                cnpj = util.padronizar_cnpj(cnpj)
+    senha = input("Digite a senha de acesso: ")
+    credes = carregar_crede()
+    for cadastro in credes:
+        if cadastro["cnpj"] == cnpj and cadastro["senha"] == senha:
+            print("\nLogin realizado com sucesso!\n")
+            util.timer()
+            crede.menu_principal()
+            return
+
+    print("\nCNPJ ou senha incorretos! Tente novamente.\n")
+    util.timer()
+    return
 
 # Cadastro de Escola (a implementar)
 def cadastro_escola():
@@ -187,17 +224,7 @@ def cadastro_escola():
     util.timer()
 
 
-# Entrada da CREDE
-def entrar_crede():
-    util.limpa_tela()
-    util.cabecalho()
 
-    print("\n- Entrar como CREDE -\n")
-
-    # A autenticação será implementada na próxima etapa.
-    crede.menu_principal()
-
-    util.timer()
 
 
 # Entrada da Escola

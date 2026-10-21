@@ -1,7 +1,12 @@
 [
     {
-        "codigo": "01",
+        "cnpj": "01",
         "nome": "CREDE01",
         "senha": "CREDE01"
+    },
+    {
+        "cnpj": "12345678901234",
+        "nome": "Homens! destruam a vila, e o templo de athenas, acabem com tudo e todos, vamos saldar o nosso deus ares, vamos homens! acabe, com tudo!",
+        "senha": "1234"
     }
 ]

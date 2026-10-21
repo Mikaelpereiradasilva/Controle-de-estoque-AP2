@@ -25,3 +25,12 @@ def senha_administrador():
         print("Senha incorreta! Acesso negado.")
         timer()
         return False
+def padronizar_cnpj(cnpj):
+    # Remove caracteres não numéricos
+    cnpj = ''.join(filter(str.isdigit, cnpj))
+    
+    # Verifica se o CNPJ tem 14 dígitos
+    if len(cnpj) != 14:
+        return None
+    else:
+        return cnpj

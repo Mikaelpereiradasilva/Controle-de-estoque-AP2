@@ -1,6 +1,5 @@
 from escolas import consultarEstoque
 import util
-import main
 
 def menu_principal():
     while True:

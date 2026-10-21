@@ -148,15 +148,23 @@ def cadastro_crede():
 
 
 # Carrega os cadastros de CREDE
+
 def carregar_crede():
     if not os.path.exists("credes.json"):
         return []
 
     with open("credes.json", "r", encoding="utf-8") as arquivo:
-        return json.load(arquivo)
+        conteudo = arquivo.read().strip()
+
+    if not conteudo:
+        return []
+
+    return json.loads(conteudo)
+
 
 
 # Salva os cadastros de CREDE
+
 def salvar_crede(credes):
     with open("credes.json", "w", encoding="utf-8") as arquivo:
         json.dump(
@@ -165,6 +173,7 @@ def salvar_crede(credes):
             indent=4,
             ensure_ascii=False
         )
+
 
 
 # Cadastro de Escola (a implementar)

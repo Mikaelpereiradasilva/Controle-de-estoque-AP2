@@ -1,3 +1,4 @@
+
 import crede
 import escolas
 import util
@@ -5,40 +6,20 @@ import json
 import os
 
 
-def menuPrincipal():
+# Menu principal do sistema
+def menu_principal():
     while True:
-        util.limpa_tela();
-        util.cabecalho();
-        print("- Como deseja acessar? -");
-        print("1 - CREDE");
-        print("2 - Escolas");
-        print("0 - Sair");
-        
-        opcao = input("Selecione o tipo de acesso: ")
-        
-        if opcao == '1':
-            crede.menu_principal()
-        elif opcao == '2':
-            print("\nSistema Escolar...\n")
-            escolas.menu_principal() 
-        elif opcao == '0':
-            print("\nA encerrar o sistema principal. Até breve!\n")
-            break
-        else:
-            print("\nOpção inválida! Por favor, digite 0, 1 ou 2.\n")
-
-# Aqui está o menu principal de login, onde o usuário pode escolher entre acessar como CREDE ou como Escola.
-def escolha_login():
-    opcao = 3
-    while opcao != '0':
         util.limpa_tela()
         util.cabecalho()
-        print('Seja Bem-Vindo a o Sistema de Controle de Estoque Escolar!\nComo deseja acessar?')
-        print()
-        print("1 - Sou Crede")
+
+        print(
+            "Seja bem-vindo ao Sistema de Controle "
+            "de Estoque Escolar!\n"
+        )
+        print("1 - Sou CREDE")
         print("2 - Sou Escola")
         print("0 - Sair")
-        print()
+
         opcao = input("Selecione uma opção: ")
 
         if opcao == '1':
@@ -48,119 +29,179 @@ def escolha_login():
         elif opcao == '0':
             print("\nEncerrando o sistema. Até logo!\n")
             util.timer()
+            break
         else:
             util.opcao_invalida()
             util.timer()
 
-#Aqui está o menu de login para usuários do tipo CREDE
+
+# Menu de acesso da CREDE
 def login_crede():
     while True:
         util.limpa_tela()
         util.cabecalho()
+
         print("\n- Login CREDE -\n")
-        print('1 - Cadastrar-se como CREDE')
-        print('2 - Já tenho cadastro')
-        print('0 - Voltar')
+        print("1 - Cadastrar uma CREDE")
+        print("2 - Já tenho cadastro")
+        print("0 - Voltar")
+
         opcao = input("Selecione uma opção: ")
+
         if opcao == '1':
-            cadastro_crede()
+            adm_cadastro_crede()
         elif opcao == '2':
             entrar_crede()
         elif opcao == '0':
             break
         else:
             util.opcao_invalida()
-        util.timer()
+            util.timer()
 
-#Aqui está o menu de login para usuários do tipo Escola
+
+# Menu de acesso da Escola
 def login_escola():
+    while True:
+        util.limpa_tela()
+        util.cabecalho()
+
+        print("\n- Login Escola -\n")
+        print("1 - Cadastrar-se como Escola")
+        print("2 - Já tenho cadastro")
+        print("0 - Voltar")
+
+        opcao = input("Selecione uma opção: ")
+
+        if opcao == '1':
+            cadastro_escola()
+        elif opcao == '2':
+            entrar_escola()
+        elif opcao == '0':
+            break
+        else:
+            util.opcao_invalida()
+            util.timer()
+
+
+# Cadastro de CREDE protegido por senha de administrador
+def adm_cadastro_crede():
     util.limpa_tela()
     util.cabecalho()
-    print("\n- Login Escola -\n")
-    print('1 - Cadastrar-se como Escola')
-    print('2 - Já tenho cadastro')
-    print('0 - Voltar')
-    opcao = input("Selecione uma opção: ")
-    if opcao == '1':
-        cadastro_escola()
-    elif opcao == '2':
-        entrar_escola()
-    elif opcao == '0':
-        escolha_login()
-    else:
-        util.opcao_invalida()
+
+    print("\n- Cadastro CREDE -\n")
+    print("Apenas para usuários autorizados.\n")
+
+    prosseguir = util.senha_administrador()
+
+    if prosseguir:
+        cadastro_crede()
+
     util.timer()
 
-#Sessão de cadastro para CREDE e Escola, onde os usuários podem se registrar no sistema. Atualmente, essas funções estão em desenvolvimento e exibem mensagens de "em breve".
+
+# Cadastro de CREDE
 def cadastro_crede():
     util.limpa_tela()
     util.cabecalho()
+
     credes = carregar_crede()
+
     print("\n- Cadastro CREDE -\n")
-    
-    codigo = input("Digite o Código Oficial da sua Crede: ")
+
+    codigo = input("Digite o código oficial da CREDE: ")
+
     for cadastro in credes:
         if cadastro["codigo"] == codigo:
-            print("Código já cadastrado. Por favor, tente novamente.")
+            print("Código já cadastrado.")
+            util.timer()
             return
-    nome = input("Digite o Nome da sua Crede: ")
-    senha = input("Crie a Senha de Acesso: ")
-    
-    print("\n- Confira os dados inseridos: -\n")
-    print(f" Código: {codigo}")
-    print(f" Nome: {nome}")
-    
-    opcao = input("Pressione 1 para confirmar ou 0 para cancelar: ")
+
+    nome = input("Digite o nome da CREDE: ")
+    senha = input("Crie a senha de acesso: ")
+
+    print("\n- Confira os dados inseridos -\n")
+    print(f"Código: {codigo}")
+    print(f"Nome: {nome}")
+
+    opcao = input(
+        "Pressione 1 para confirmar ou 0 para cancelar: "
+    )
+
     if opcao == '1':
-        credes.append({"codigo": codigo, "nome": nome, "senha": senha})
+        credes.append({
+            "codigo": codigo,
+            "nome": nome,
+            "senha": senha
+        })
+
         salvar_crede(credes)
-        print("\nCadastro realizado com sucesso! Em breve, você poderá acessar o sistema com suas credenciais.\n")
-        util.timer()
+
+        print("\nCadastro realizado com sucesso!\n")
+
     elif opcao == '0':
-        print("\nCadastro cancelado. Retornando ao menu de login.\n")
-        util.timer()
+        print("\nCadastro cancelado.\n")
+
     else:
-        print("\nOpção inválida! Retornando ao menu de login.\n")
-        util.timer()
+        print("\nOpção inválida. Cadastro não realizado.\n")
 
+    util.timer()
+
+
+# Carrega os cadastros de CREDE
 def carregar_crede():
-    if not os.path.exists('credes.json'):
+    if not os.path.exists("credes.json"):
         return []
-    with open('credes.json', 'r', encoding='utf-8') as f:
-        return json.load(f)
 
+    with open("credes.json", "r", encoding="utf-8") as arquivo:
+        return json.load(arquivo)
+
+
+# Salva os cadastros de CREDE
 def salvar_crede(credes):
-    with open('credes.json', 'w', encoding='utf-8') as f:
-        json.dump(credes, f, indent=4, ensure_ascii=False)
+    with open("credes.json", "w", encoding="utf-8") as arquivo:
+        json.dump(
+            credes,
+            arquivo,
+            indent=4,
+            ensure_ascii=False
+        )
 
 
-
+# Cadastro de Escola (a implementar)
 def cadastro_escola():
     util.limpa_tela()
     util.cabecalho()
+
     print("\n- Cadastro Escola -\n")
-    
-    print("\nCadastro de Escola em breve...\n")
+    print("Cadastro de Escola em breve...\n")
+
     util.timer()
 
-#Sessão de entrada para CREDE e Escola, onde os usuários podem acessar o sistema. Atualmente, essas funções estão em desenvolvimento e exibem mensagens de "em breve".
+
+# Entrada da CREDE
 def entrar_crede():
     util.limpa_tela()
     util.cabecalho()
+
     print("\n- Entrar como CREDE -\n")
 
+    # A autenticação será implementada na próxima etapa.
     crede.menu_principal()
-    
+
     util.timer()
 
+
+# Entrada da Escola
 def entrar_escola():
     util.limpa_tela()
     util.cabecalho()
+
     print("\n- Entrar como Escola -\n")
-    
+
+    # A autenticação será implementada posteriormente.
     escolas.menu_principal()
 
     util.timer()
 
-escolha_login()
-print()
+
+menu_principal()

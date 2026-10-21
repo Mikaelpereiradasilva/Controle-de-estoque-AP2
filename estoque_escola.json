@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "nome": "Lápis",
+        "categoria": "Lápis de cor",
+        "quantidade": 234,
+        "validade": "0"
+    },
+    {
+        "id": 2,
+        "nome": "555",
+        "categoria": "ty",
+        "quantidade": 7,
+        "validade": "7"
+    }
+]

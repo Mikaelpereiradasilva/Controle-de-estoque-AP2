@@ -1,7 +1,8 @@
 import crede
 import escolas
 import util
-
+import json
+import os
 
 
 def menuPrincipal():
@@ -57,7 +58,7 @@ def login_crede():
         util.limpa_tela()
         util.cabecalho()
         print("\n- Login CREDE -\n")
-        print('1 - Cadastar-se como CREDE')
+        print('1 - Cadastrar-se como CREDE')
         print('2 - Já tenho cadastro')
         print('0 - Voltar')
         opcao = input("Selecione uma opção: ")
@@ -76,7 +77,7 @@ def login_escola():
     util.limpa_tela()
     util.cabecalho()
     print("\n- Login Escola -\n")
-    print('1 - Cadastar-se como Escola')
+    print('1 - Cadastrar-se como Escola')
     print('2 - Já tenho cadastro')
     print('0 - Voltar')
     opcao = input("Selecione uma opção: ")
@@ -94,10 +95,45 @@ def login_escola():
 def cadastro_crede():
     util.limpa_tela()
     util.cabecalho()
+    credes = carregar_crede()
     print("\n- Cadastro CREDE -\n")
     
-    print("\nCadastro de CREDE em breve...\n")
-    util.timer()
+    codigo = input("Digite o Código Oficial da sua Crede: ")
+    for cadastro in credes:
+        if cadastro["codigo"] == codigo:
+            print("Código já cadastrado. Por favor, tente novamente.")
+            return
+    nome = input("Digite o Nome da sua Crede: ")
+    senha = input("Crie a Senha de Acesso: ")
+    
+    print("\n- Confira os dados inseridos: -\n")
+    print(f" Código: {codigo}")
+    print(f" Nome: {nome}")
+    
+    opcao = input("Pressione 1 para confirmar ou 0 para cancelar: ")
+    if opcao == '1':
+        credes.append({"codigo": codigo, "nome": nome, "senha": senha})
+        salvar_crede(credes)
+        print("\nCadastro realizado com sucesso! Em breve, você poderá acessar o sistema com suas credenciais.\n")
+        util.timer()
+    elif opcao == '0':
+        print("\nCadastro cancelado. Retornando ao menu de login.\n")
+        util.timer()
+    else:
+        print("\nOpção inválida! Retornando ao menu de login.\n")
+        util.timer()
+
+def carregar_crede():
+    if not os.path.exists('credes.json'):
+        return []
+    with open('credes.json', 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def salvar_crede(credes):
+    with open('credes.json', 'w', encoding='utf-8') as f:
+        json.dump(credes, f, indent=4, ensure_ascii=False)
+
+
 
 def cadastro_escola():
     util.limpa_tela()

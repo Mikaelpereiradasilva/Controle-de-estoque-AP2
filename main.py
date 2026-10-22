@@ -131,6 +131,8 @@ def cadastro_crede():
     nome = input("Digite o nome da CREDE: ")
     senha = input("Crie a senha de acesso: ")
 
+    salt, senha_hash = util.gerar_hash_senha(senha)
+
     print("\n- Confira os dados inseridos -\n")
     print(f"CNPJ: {cnpj}")
     print(f"Nome: {nome}")
@@ -141,7 +143,8 @@ def cadastro_crede():
         credes.append({
             "cnpj": cnpj,
             "nome": nome,
-            "senha": senha
+            "salt": salt,
+            "senha_hash": senha_hash
         })
 
         salvar_crede(credes)
@@ -203,11 +206,16 @@ def entrar_crede():
     senha = input("Digite a senha de acesso: ")
     credes = carregar_crede()
     for cadastro in credes:
-        if cadastro["cnpj"] == cnpj and cadastro["senha"] == senha:
-            print("\nLogin realizado com sucesso!\n")
-            util.timer()
-            crede.menu_principal()
-            return
+        if cadastro["cnpj"] == cnpj:
+            if util.verificar_senha(
+                senha,
+                cadastro["salt"],
+                cadastro["senha_hash"]
+            ):
+                print("\nLogin realizado com sucesso!\n")
+                util.timer()
+                crede.menu_principal()
+                return
 
     print("\nCNPJ ou senha incorretos! Tente novamente.\n")
     util.timer()

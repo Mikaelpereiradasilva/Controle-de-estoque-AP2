@@ -1,12 +1,8 @@
 [
     {
-        "cnpj": "01",
-        "nome": "CREDE01",
-        "senha": "CREDE01"
-    },
-    {
-        "cnpj": "12345678901234",
-        "nome": "Homens! destruam a vila, e o templo de athenas, acabem com tudo e todos, vamos saldar o nosso deus ares, vamos homens! acabe, com tudo!",
-        "senha": "1234"
+        "cnpj": "12345678901111",
+        "nome": "crede57",
+        "salt": "421a10c0fa678b061e742654442c7030",
+        "senha_hash": "fbe0a19e611447b8e5116267474d22e840432bcbbb2cbbcfb6550f0b3ab72efae41f02248d0a662488db37d776dacf68674a5de682f2c5311ef0b4660524b447"
     }
 ]

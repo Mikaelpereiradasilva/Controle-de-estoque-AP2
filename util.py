@@ -1,4 +1,7 @@
 import os, time
+import hashlib
+import secrets
+import hmac
 
 def cabecalho():
     print("====================================")
@@ -34,3 +37,31 @@ def padronizar_cnpj(cnpj):
         return None
     else:
         return cnpj
+
+# Função para gerar hash da senha com salt
+def gerar_hash_senha(senha):
+    salt = secrets.token_bytes(16)
+
+    senha_hash = hashlib.scrypt(
+        senha.encode("utf-8"),
+        salt=salt,
+        n=2**14,
+        r=8,
+        p=1
+    )
+
+    return salt.hex(), senha_hash.hex()
+
+# Função para verificar a senha digitada com o hash e salt armazenados
+def verificar_senha(senha_digitada, salt_hex, hash_armazenado):
+    salt = bytes.fromhex(salt_hex)
+
+    hash_calculado = hashlib.scrypt(
+        senha_digitada.encode("utf-8"),
+        salt=salt,
+        n=2**14,
+        r=8,
+        p=1
+    ).hex()
+
+    return hmac.compare_digest(hash_calculado, hash_armazenado)

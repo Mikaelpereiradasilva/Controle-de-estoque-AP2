@@ -1,10 +1,10 @@
 
-import credem
+import crede_menus
 import escolas
 import util
 import json
 import os
-import credelc
+import crede_login_e_cadastro
 
 
 # Menu principal do sistema
@@ -50,9 +50,9 @@ def login_crede():
         opcao = input("Selecione uma opção: ")
 
         if opcao == '1':
-            credelc.adm_cadastro_crede()
+            crede_login_e_cadastro.adm_cadastro_crede()
         elif opcao == '2':
-            credelc.entrar_crede()
+            crede_login_e_cadastro.entrar_crede()
         elif opcao == '0':
             break
         else:

@@ -1,5 +1,5 @@
 #Aqui estão os códigos de login e cadastro(lc) da Crede
-import credem
+import crede_menus
 import util
 import json
 import os
@@ -136,7 +136,7 @@ def entrar_crede():
             ):
                 print("\nLogin realizado com sucesso!\n")
                 util.timer()
-                credem.menu_principal()
+                crede_menus.menu_principal()
                 return
 
     print("\nCNPJ ou senha incorretos! Tente novamente.\n")

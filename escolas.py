@@ -1,11 +1,13 @@
 import json
 import os
+import util
 
-ARQUIVO_ESTOQUE = 'estoque_escola.json'
+ARQUIVO_ESTOQUE = 'lista_de_estoques_escolares.json'
 ARQUIVO_RETIRADAS = 'historico_retiradas.json'
 ARQUIVO_COMPRAS = 'solicitacoes_seduc.json'
 
 def menu_principal():
+    util.limpar_tela()
     while True:
         print("\n" + "="*40)
         print(" SISTEMA DE CONTROLE DE ESTOQUE ESCOLAR ")
@@ -14,7 +16,7 @@ def menu_principal():
         print("2 - Registrar Retirada de Produto")
         print("3 - Consultar Estoque")
         print("4 - Solicitar Autorização de Compra (SEDUC)")
-        print("0 - Sair do Sistema")
+        print("0 - Voltar")
         print("="*40)
         
         opcao = input("Digite o número da opção desejada: ")
@@ -28,7 +30,6 @@ def menu_principal():
         elif opcao == '4':
             solicitarAutorzacaoDeCompra()
         elif opcao == '0':
-            print("\nEncerrando o sistema. Até logo!")
             break
         else:
             print("\nOpção inválida! Por favor, digite um número de 0 a 4.")

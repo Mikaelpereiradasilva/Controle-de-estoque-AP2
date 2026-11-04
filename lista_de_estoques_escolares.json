@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "nome": "Caixa de Lápis de Cor",
+        "categoria": "Material Escolar",
+        "quantidade": 50,
+        "validade": "00000000"
+    }
+]

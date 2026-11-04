@@ -1,0 +1,16 @@
+[
+    {
+        "cnpj": "15152422000150",
+        "nome": "EEEP Raimundo Saraiva Coelho",
+        "crede": "00319801000114",
+        "salt": "e14f0379fde4d060bf17ce1435d5c612",
+        "senha_hash": "ddbeb35741717a139b56921de72f5fa1bdede2ea59d1ca0af8eb9b7cc97dcd795de87e8e9d91d93acbcfce409076d035a917cd5f12e265573eaaa281b06ec63d"
+    },
+    {
+        "cnpj": "07954514059529",
+        "nome": "EEMTI Dona Maria Amélia Bezerra",
+        "crede": "00319801000114",
+        "salt": "3e96c8f55c6bc9ee3dd13913ae0bec37",
+        "senha_hash": "5bc9b8202454b1d94598c7122fbbad70144c023a19853c0b392d19155cc844e14d84a67a747026d771630460fe2ec8392a43c93ca64f89408f23dbd1e782ece7"
+    }
+]

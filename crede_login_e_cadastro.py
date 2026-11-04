@@ -54,7 +54,7 @@ def cadastro_crede():
 
     salt, senha_hash = util.gerar_hash_senha(senha)
 
-    print("\n- Confira os dados inseridos -\n")
+    print("\n- Confira os dados inseridos: -\n")
     print(f"CNPJ: {cnpj}")
     print(f"Nome: {nome}")
 
@@ -84,10 +84,10 @@ def cadastro_crede():
 # Carrega os cadastros de CREDE
 
 def carregar_crede():
-    if not os.path.exists("credes.json"):
+    if not os.path.exists("lista_de_credes.json"):
         return []
 
-    with open("credes.json", "r", encoding="utf-8") as arquivo:
+    with open("lista_de_credes.json", "r", encoding="utf-8") as arquivo:
         conteudo = arquivo.read().strip()
 
     if not conteudo:
@@ -100,7 +100,7 @@ def carregar_crede():
 # Salva os cadastros de CREDE
 
 def salvar_crede(credes):
-    with open("credes.json", "w", encoding="utf-8") as arquivo:
+    with open("lista_de_credes.json", "w", encoding="utf-8") as arquivo:
         json.dump(
             credes,
             arquivo,

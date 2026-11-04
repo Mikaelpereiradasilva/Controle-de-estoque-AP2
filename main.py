@@ -1,5 +1,5 @@
 
-import escolas
+import escolas_login_e_cadastro
 import util
 import crede_login_e_cadastro
 
@@ -71,42 +71,14 @@ def login_escola():
         opcao = input("Selecione uma opção: ")
 
         if opcao == '1':
-            cadastro_escola()
+            escolas_login_e_cadastro.adm_cadastro_escola()
         elif opcao == '2':
-            entrar_escola()
+            escolas_login_e_cadastro.entrar_escola()
         elif opcao == '0':
             break
         else:
             util.opcao_invalida()
             util.timer()
-
-
-
-# Cadastro de Escola (a implementar)
-def cadastro_escola():
-    util.limpa_tela()
-    util.cabecalho()
-
-    print("\n- Cadastro Escola -\n")
-    print("Cadastro de Escola em breve...\n")
-
-    util.timer()
-
-
-
-
-
-# Entrada da Escola
-def entrar_escola():
-    util.limpa_tela()
-    util.cabecalho()
-
-    print("\n- Entrar como Escola -\n")
-
-    # A autenticação será implementada posteriormente.
-    escolas.menu_principal()
-
-    util.timer()
 
 
 menu_principal()

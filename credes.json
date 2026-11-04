@@ -1,8 +1,14 @@
 [
     {
-        "cnpj": "12345678901111",
-        "nome": "crede57",
-        "salt": "421a10c0fa678b061e742654442c7030",
-        "senha_hash": "fbe0a19e611447b8e5116267474d22e840432bcbbb2cbbcfb6550f0b3ab72efae41f02248d0a662488db37d776dacf68674a5de682f2c5311ef0b4660524b447"
+        "cnpj": "00319801000114",
+        "nome": "CREDE 19",
+        "salt": "a28ef0510c34d69433a24e8e7b8befef",
+        "senha_hash": "e42b5518beff07d7c34d95c6c5a7da5d22eb8a9aea2256178d8e79e8a06faf7d10ecdb254ff52b90e07ebb6c6aedd913b08d7879d51bd11cb98b3fd9ff4924cd"
+    },
+    {
+        "cnpj": "00376219000190",
+        "nome": "CREDE 18",
+        "salt": "b9d2578be6ceeb180eebdcbb4f074416",
+        "senha_hash": "2412e16c01c66868ac4a6f4dbdd6c79508422dde1ec62c6593084dc97ad84e2fc2954f5c75ef97718e866cbd2b05876885cb926fe9139aea83212dd4e35ae487"
     }
 ]

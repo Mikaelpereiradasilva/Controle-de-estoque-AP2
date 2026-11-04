@@ -58,7 +58,7 @@ def cadastro_crede():
     print(f"CNPJ: {cnpj}")
     print(f"Nome: {nome}")
 
-    opcao = input("\nPressione 1 para confirmar ou 0 para cancelar: \n")
+    opcao = input("\nEscreva 1 para confirmar ou 0 para cancelar: \n")
 
     if opcao == '1':
         credes.append({

@@ -3,7 +3,6 @@ import crede_menus
 import util
 import json
 import os
-import main
 
 # Cadastro de CREDE protegido por senha de administrador
 def adm_cadastro_crede():

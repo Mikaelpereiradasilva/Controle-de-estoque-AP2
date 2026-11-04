@@ -1,6 +1,6 @@
 from escolas import consultarEstoque
 import util
-import credelc
+
 
 
 def menu_principal():

@@ -1,9 +1,6 @@
 
-import crede_menus
 import escolas
 import util
-import json
-import os
 import crede_login_e_cadastro
 
 

@@ -26,7 +26,7 @@ O sistema é dividido em dois módulos principais, atendendo às necessidades de
 * **crede_fiscalizacao:** Acesso em tempo real ao inventário de cada colégio da rede.
 * **crede_login_e_cadastro:** Capacidade de entrar em credes já existentes e criar novas
 * **crede_menus:** Apresentação das ações da crede
-* **crede.json:** Armazenamento das credenciais das credes
+* **lista_de_credes.json:** Armazenamento das credenciais das credes
 
 ## Benefícios Esperados
 

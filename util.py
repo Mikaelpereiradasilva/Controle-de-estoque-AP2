@@ -10,6 +10,7 @@ def cabecalho():
 
 def limpa_tela():
     os.system("cls")
+    os.system("clear")
 
 def timer():
     time.sleep(3)

@@ -1,16 +1,50 @@
-[
-    {
-        "id": 1,
-        "nome": "Caixa de Lápis de Cor",
-        "categoria": "Material Escolar",
-        "quantidade": 45,
-        "validade": "00000000"
-    },
-    {
-        "id": 2,
-        "nome": "Canetas",
-        "categoria": "Material Escolar",
-        "quantidade": 10,
-        "validade": "00/00/0000"
-    }
-]
+{
+    "15152422000150": [
+        {
+            "id": 1,
+            "nome": "Caneta Azul",
+            "categoria": "Material Escolar",
+            "quantidade": 53,
+            "validade": "00/00/0000"
+        },
+        {
+            "id": 2,
+            "nome": "Veja Multiuso",
+            "categoria": "Material de Limpeza",
+            "quantidade": 12,
+            "validade": "00/00/0000"
+        }
+    ],
+    "07954514059529": [
+        {
+            "id": 1,
+            "nome": "Jogo de Xadrez",
+            "categoria": "Material Recreativo",
+            "quantidade": 2,
+            "validade": "00/00/0000"
+        },
+        {
+            "id": 2,
+            "nome": "Resma de Papel",
+            "categoria": "Material Escolar",
+            "quantidade": 2,
+            "validade": "00/00/0000"
+        }
+    ],
+    "07954514071901": [
+        {
+            "id": 1,
+            "nome": "Tablets",
+            "categoria": "Material de Tecnologia",
+            "quantidade": 7,
+            "validade": "00/00/0000"
+        },
+        {
+            "id": 2,
+            "nome": "Pano de Espanar",
+            "categoria": "Material de Limpeza",
+            "quantidade": 5,
+            "validade": "00/00/0000"
+        }
+    ]
+}

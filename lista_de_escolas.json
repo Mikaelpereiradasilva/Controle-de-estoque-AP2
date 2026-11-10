@@ -12,5 +12,12 @@
         "crede": "00319801000114",
         "salt": "3e96c8f55c6bc9ee3dd13913ae0bec37",
         "senha_hash": "5bc9b8202454b1d94598c7122fbbad70144c023a19853c0b392d19155cc844e14d84a67a747026d771630460fe2ec8392a43c93ca64f89408f23dbd1e782ece7"
+    },
+    {
+        "cnpj": "07954514071901",
+        "nome": "EEEP Maria Violeta Arraes de Alencar Gervaiseau",
+        "crede": "00376219000190",
+        "salt": "1c2aeb9c002dd0d99b8bb3b21016caa2",
+        "senha_hash": "12291f017c5eff85aca4b1cf42f642a57a60df20dff79b349a74fa1a137338fef1194450b0233b0bdd170c01f6a2afd0127c7acba29e3807d1bdcc751936c097"
     }
 ]

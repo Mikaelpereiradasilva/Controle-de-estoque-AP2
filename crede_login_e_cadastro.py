@@ -135,7 +135,7 @@ def entrar_crede():
             ):
                 print("\nLogin realizado com sucesso!\n")
                 util.timer()
-                crede_menus.menu_principal()
+                crede_menus.menu_principal(cnpj_crede_logada=cnpj)
                 return
 
     print("\nCNPJ ou senha incorretos! Tente novamente.\n")

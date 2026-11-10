@@ -29,7 +29,7 @@ def cadastro_escola():
     util.limpa_tela()
     util.cabecalho()
 
-    escolas = carregar_escolas()
+    lista_escolas = carregar_escolas()
 
 
     print("\n- Cadastro Escola -\n")
@@ -47,7 +47,7 @@ def cadastro_escola():
                 cnpj = input("Digite o CNPJ da Escola: ")
                 cnpj = util.padronizar_cnpj(cnpj)
 
-    for cadastro in escolas:
+    for cadastro in lista_escolas:
             if cadastro["cnpj"] == cnpj:
                 print("CNPJ já cadastrado.")
                 util.timer()
@@ -71,7 +71,7 @@ def cadastro_escola():
     opcao = input("\nEscreva 1 para confirmar ou 0 para cancelar: \n")
 
     if opcao == '1':
-        escolas.append({
+        lista_escolas.append({
             "cnpj": cnpj,
             "nome": nome,
             "crede": crede,
@@ -79,7 +79,7 @@ def cadastro_escola():
             "senha_hash": senha_hash
         })
 
-        salvar_escolas(escolas)
+        salvar_escolas(lista_escolas)
 
         print("\nCadastro realizado com sucesso!\n")
     
@@ -155,7 +155,7 @@ def entrar_escola():
             ):
                 print("\nLogin realizado com sucesso!\n")
                 util.timer()
-                escolas.menu_principal()
+                escolas.menu_principal(cnpj)
                 return
 
     print("\nCNPJ ou senha incorretos! Tente novamente.\n")

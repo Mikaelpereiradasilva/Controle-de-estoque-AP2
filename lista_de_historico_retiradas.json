@@ -1,16 +1,50 @@
-[
-    {
-        "id": 1,
-        "id_produto": 2,
-        "nome_produto": "Canetas",
-        "setor": "ggg",
-        "quantidade_retirada": 2
-    },
-    {
-        "id": 2,
-        "id_produto": 2,
-        "nome_produto": "Canetas",
-        "setor": "Diretoria",
-        "quantidade_retirada": 1
-    }
-]
+{
+    "15152422000150": [
+        {
+            "id": 1,
+            "id_produto": 1,
+            "nome_produto": "Caneta Azul",
+            "setor": "Diretoria",
+            "quantidade_retirada": 2
+        },
+        {
+            "id": 2,
+            "id_produto": 2,
+            "nome_produto": "Veja Multiuso",
+            "setor": "Cantina",
+            "quantidade_retirada": 3
+        }
+    ],
+    "07954514059529": [
+        {
+            "id": 1,
+            "id_produto": 1,
+            "nome_produto": "Jogo de Xadrez",
+            "setor": "Sala dos Professores",
+            "quantidade_retirada": 1
+        },
+        {
+            "id": 2,
+            "id_produto": 2,
+            "nome_produto": "Resma de Papel",
+            "setor": "Diretoria",
+            "quantidade_retirada": 2
+        }
+    ],
+    "07954514071901": [
+        {
+            "id": 1,
+            "id_produto": 1,
+            "nome_produto": "Tablets",
+            "setor": "Sala 02",
+            "quantidade_retirada": 1
+        },
+        {
+            "id": 2,
+            "id_produto": 1,
+            "nome_produto": "Tablets",
+            "setor": "Diretoria",
+            "quantidade_retirada": 2
+        }
+    ]
+}

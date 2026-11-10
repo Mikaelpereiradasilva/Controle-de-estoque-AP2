@@ -129,8 +129,8 @@ def consultarEstoque():
         
     for p in estoque:
         print(f"ID: {p['id']:03d} | Nome: {p['nome']:<15} | Categoria: {p['categoria']:<10} | Qtd: {p['quantidade']:<4} | Validade: {p['validade']}")
-        util.timer()
-        util.limpa_tela()
+    input("\nPressione Enter para voltar ao menu...")
+    util.limpa_tela()
 
 def solicitarAutorizacaoDeCompra():
     print("\n Em breve")

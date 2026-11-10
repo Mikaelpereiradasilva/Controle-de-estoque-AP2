@@ -3,6 +3,8 @@ import hashlib
 import secrets
 import hmac
 
+
+#BÁSICO
 def cabecalho():
     print("====================================")
     print("= Estoque Escolar unificado - v0.1 =")
@@ -10,7 +12,6 @@ def cabecalho():
 
 def limpa_tela():
     os.system("cls")
-    os.system("clear")
 
 def timer():
     time.sleep(3)
@@ -19,6 +20,9 @@ def opcao_invalida():
     print("\nOpção inválida! Por favor, digite um número válido.\n")
     timer()
 
+
+
+#ADMINISTRADOR
 def senha_administrador():
     senha = input("Digite a senha do administrador: ")
     if senha == "1234":
@@ -29,6 +33,9 @@ def senha_administrador():
         print("Senha incorreta! Acesso negado.")
         timer()
         return False
+
+
+#CADASTRO
 def padronizar_cnpj(cnpj):
     # Remove caracteres não numéricos
     cnpj = ''.join(filter(str.isdigit, cnpj))

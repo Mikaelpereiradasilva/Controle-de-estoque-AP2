@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "id_produto": 2,
+        "nome_produto": "Canetas",
+        "setor": "ggg",
+        "quantidade_retirada": 2
+    },
+    {
+        "id": 2,
+        "id_produto": 2,
+        "nome_produto": "Canetas",
+        "setor": "Diretoria",
+        "quantidade_retirada": 1
+    }
+]

@@ -3,7 +3,14 @@
         "id": 1,
         "nome": "Caixa de Lápis de Cor",
         "categoria": "Material Escolar",
-        "quantidade": 50,
+        "quantidade": 45,
         "validade": "00000000"
+    },
+    {
+        "id": 2,
+        "nome": "Canetas",
+        "categoria": "Material Escolar",
+        "quantidade": 10,
+        "validade": "00/00/0000"
     }
 ]

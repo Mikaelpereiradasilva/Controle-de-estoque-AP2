@@ -1,6 +1,11 @@
+import pathlib
 import util
 import escolas
 import os, json
+
+pasta_jsons = pathlib.Path(__file__).parent / "Arquivos Json"
+
+ARQUIVO_ESCOLAS = pasta_jsons / 'lista_de_escolas.json'
 
 
 # Cadastro de Escolas protegido por senha de administrador
@@ -100,10 +105,10 @@ def cadastro_escola():
 
 # Carrega os cadastros de Escolas
 def carregar_escolas():
-    if not os.path.exists("lista_de_escolas.json"):
+    if not os.path.exists(ARQUIVO_ESCOLAS):
         return []
 
-    with open("lista_de_escolas.json", "r", encoding="utf-8") as arquivo:
+    with open(ARQUIVO_ESCOLAS, "r", encoding="utf-8") as arquivo:
         conteudo = arquivo.read().strip()
 
     if not conteudo:
@@ -117,7 +122,7 @@ def carregar_escolas():
 
 
 def salvar_escolas(escolas):
-    with open("lista_de_escolas.json", "w", encoding="utf-8") as arquivo:
+    with open(ARQUIVO_ESCOLAS, "w", encoding="utf-8") as arquivo:
         json.dump(
             escolas,
             arquivo,

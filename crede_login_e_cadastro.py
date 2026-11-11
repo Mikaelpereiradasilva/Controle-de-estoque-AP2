@@ -3,6 +3,12 @@ import crede_menus
 import util
 import json
 import os
+import pathlib
+
+pasta_jsons = pathlib.Path(__file__).parent / "Arquivos Json"
+
+ARQUIVO_CREDE = pasta_jsons / 'lista_de_credes.json'
+
 
 # Cadastro de CREDE protegido por senha de administrador
 def adm_cadastro_crede():
@@ -84,10 +90,10 @@ def cadastro_crede():
 # Carrega os cadastros de CREDE
 
 def carregar_crede():
-    if not os.path.exists("lista_de_credes.json"):
+    if not os.path.exists(ARQUIVO_CREDE):
         return []
 
-    with open("lista_de_credes.json", "r", encoding="utf-8") as arquivo:
+    with open(ARQUIVO_CREDE, "r", encoding="utf-8") as arquivo:
         conteudo = arquivo.read().strip()
 
     if not conteudo:
@@ -100,7 +106,7 @@ def carregar_crede():
 # Salva os cadastros de CREDE
 
 def salvar_crede(credes):
-    with open("lista_de_credes.json", "w", encoding="utf-8") as arquivo:
+    with open(ARQUIVO_CREDE, "w", encoding="utf-8") as arquivo:
         json.dump(
             credes,
             arquivo,

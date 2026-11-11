@@ -1,12 +1,16 @@
 import json
 import os
 import util
+import pathlib
 
-ARQUIVO_ESTOQUE = 'lista_de_estoques_escolares.json'
-ARQUIVO_RETIRADAS = 'lista_de_historico_retiradas.json'
-ARQUIVO_COMPRAS = 'lista_de_solicitacoes_crede.json'
-ARQUIVO_ESCOLAS = 'lista_de_escolas.json'
-ARQUIVO_CREDE = 'lista_de_credes.json'
+pasta_jsons = pathlib.Path(__file__).parent / "Arquivos Json"
+
+ARQUIVO_ESTOQUE = pasta_jsons / 'lista_de_estoques_escolares.json'
+ARQUIVO_RETIRADAS = pasta_jsons / 'lista_de_historico_retiradas.json'
+ARQUIVO_COMPRAS = pasta_jsons / 'lista_de_solicitacoes_crede.json'
+ARQUIVO_ESCOLAS = pasta_jsons / 'lista_de_escolas.json'
+ARQUIVO_CREDE = pasta_jsons / 'lista_de_credes.json'
+
 
 #PRINCIPAL
 def menu_principal(cnpj_escola_logada):

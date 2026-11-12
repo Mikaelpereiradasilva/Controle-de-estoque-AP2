@@ -1,6 +1,6 @@
 import crede_fiscalizacao
 import util
-import escolas
+import escolas_menus
 import pathlib
 
 pasta_jsons = pathlib.Path(__file__).parent / "Arquivos Json"
@@ -12,7 +12,7 @@ ARQUIVO_CREDE = pasta_jsons / 'lista_de_credes.json'
 def menu_principal(cnpj_crede_logada):
     util.limpa_tela()
     nome_da_crede = ''
-    for crede in escolas.carregar_dados(ARQUIVO_CREDE):
+    for crede in escolas_menus.carregar_dados(ARQUIVO_CREDE):
         if crede['cnpj'] == cnpj_crede_logada:
             nome_da_crede = crede['nome']
             break

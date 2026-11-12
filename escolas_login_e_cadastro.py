@@ -1,6 +1,6 @@
 import pathlib
 import util
-import escolas
+import escolas_menus
 import os, json
 
 pasta_jsons = pathlib.Path(__file__).parent / "Arquivos Json"
@@ -160,7 +160,7 @@ def entrar_escola():
             ):
                 print("\nLogin realizado com sucesso!\n")
                 util.timer()
-                escolas.menu_principal(cnpj)
+                escolas_menus.menu_principal(cnpj)
                 return
 
     print("\nCNPJ ou senha incorretos! Tente novamente.\n")

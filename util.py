@@ -22,10 +22,13 @@ def opcao_invalida():
 
 
 
-#ADMINISTRADOR
+#ADMINISTRADOR PROTEGIDO COM HASH E SALT
 def senha_administrador():
     senha = input("Digite a senha do administrador: ")
-    if senha == "1234":
+    salt_adm = '9f87e5fe4387d09a6425aec76291ff25'
+    hash_adm = 'd6be2af8b0bb77fb2b3285aaebea68bbd1801ec2cc4de9fb8a57f4775b8f091bc67052d7822baa51d0e80a978a7978fd7a700281d977b5b4f16c50416251846c'
+
+    if verificar_senha(senha, salt_adm, hash_adm):
         print("Acesso concedido!")
         timer()
         return True

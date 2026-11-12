@@ -37,6 +37,7 @@ def menu_principal(cnpj_escola_logada):
         print("3 - Consultar Estoque")
         print("4 - Visualizar Histórico de Retiradas")
         print("5 - Solicitar Autorização de Compra (CREDE)")
+        print("6 - Visualizar Solicitações de Compra (CREDE)")
         print("0 - Voltar")
         print("="*50)
         
@@ -51,11 +52,13 @@ def menu_principal(cnpj_escola_logada):
         elif opcao == '4':
             escola_retiradas.visualizar_historico_retiradas(cnpj_escola_logada)
         elif opcao == '5':
-            escola_autorizacao.solicitarAutorizacaoDeCompra(cnpj_escola_logada)
+            escola_autorizacao.solicitar_autorizacao_compra(cnpj_escola_logada)
+        elif opcao == '6':
+            escola_autorizacao.visualizar_solicitacoes_compra(cnpj_escola_logada)
         elif opcao == '0':
             break
         else:
-            print("\nOpção inválida! Por favor, digite um número de 0 a 5.")
+            print("\nOpção inválida! Por favor, digite um número de 0 a 6.")
             util.timer()
             util.limpa_tela()
 

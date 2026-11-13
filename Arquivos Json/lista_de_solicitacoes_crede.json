@@ -2,36 +2,15 @@
     "15152422000150": [
         {
             "id": 1,
+            "cnpj_crede": "00319801000114",
             "orçamentos": [
                 {
                     "n_orcamento": 1,
-                    "nome_produto": "Caneta Bic",
-                    "quantidade": "30",
-                    "preco": "34",
-                    "fornecedor": "Livraria Colegial",
-                    "cnpj_fornecedor": "02713654000198"
-                },
-                {
-                    "n_orcamento": 2,
-                    "nome_produto": "Caneta Bic",
-                    "quantidade": "30",
-                    "preco": "45",
-                    "fornecedor": "Papelaria Setta",
-                    "cnpj_fornecedor": "23581150000131"
-                }
-            ],
-            "situacao": null
-        },
-        {
-            "id": 2,
-            "orçamentos": [
-                {
-                    "n_orcamento": 1,
-                    "nome_produto": "Caixa de Lápis de Cor",
-                    "quantidade": "56",
-                    "preco": "412",
-                    "fornecedor": "Livraria Colegial",
-                    "cnpj_fornecedor": "02713654000198"
+                    "nome_produto": "Lápis",
+                    "quantidade": "18",
+                    "preco": "2",
+                    "fornecedor": "Bic",
+                    "cnpj_fornecedor": "61140349000113"
                 }
             ],
             "situacao": null

@@ -1,7 +1,9 @@
 import crede_fiscalizacao
+import crede_autorizacao
 import util
 import escolas_menus
 import pathlib
+
 
 pasta_jsons = pathlib.Path(__file__).parent / "Arquivos Json"
 
@@ -28,7 +30,7 @@ def menu_principal(cnpj_crede_logada):
         opcao = input("Selecione a opção desejada: ")
         
         if opcao == '1':
-            autorizacaoCompras()
+            crede_autorizacao.buscar_autorizacoes_crede(cnpj_crede_logada)
         elif opcao == '2':
             crede_fiscalizacao.fiscalizar_estoques(cnpj_crede_logada)
         elif opcao == '0':

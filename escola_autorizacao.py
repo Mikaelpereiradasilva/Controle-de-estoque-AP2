@@ -17,6 +17,20 @@ def solicitar_autorizacao_compra(cnpj_escola_logada):
     
     autorizacoes = escolas_menus.carregar_dados(ARQUIVO_COMPRAS)
     autorizacoes_da_escola = autorizacoes.setdefault(cnpj_escola_logada, [])
+
+    escola = next(
+        (
+            cadastro
+            for cadastro in escolas_menus.carregar_dados(ARQUIVO_ESCOLAS)
+            if cadastro.get("cnpj") == cnpj_escola_logada
+        ),
+        None
+    )
+    if escola is None or not escola.get("crede"):
+        print("Não foi possível identificar a CREDE responsável por esta escola.")
+        util.timer()
+        return
+    cnpj_crede = escola["crede"]
     
     print("\n--- Solicitação de Autorização de Compra ---\n")
 
@@ -82,6 +96,7 @@ def solicitar_autorizacao_compra(cnpj_escola_logada):
     ### ESPAÇO PARA SALVAR A NOVA SOLICITAÇÃO ###
     nova_solicitacao = {
         "id": id_solicitacao,
+        "cnpj_crede": cnpj_crede,
         "orçamentos": lista_de_orçamentos,
         "situacao": None
     }
@@ -108,8 +123,34 @@ def solicitar_autorizacao_compra(cnpj_escola_logada):
     util.timer()
     util.limpa_tela()
 
-def visualizar_solicitacoes_compra(cnpj_escola_logada):
-     print("\n--- Solicitações de Compra (CREDE) ---\n")
-     print("Em breve")
-     util.timer()
-     util.limpa_tela()
+def visualizar_solicitacoes(cnpj_escola_logada):
+    util.limpa_tela()
+    
+    autorizacoes = escolas_menus.carregar_dados(ARQUIVO_COMPRAS)
+    autorizacoes_da_escola = autorizacoes.setdefault(cnpj_escola_logada, [])
+    
+    print("\n--- Solicitações de Autorização de Compra (Escola) ---\n")
+    
+    if not autorizacoes_da_escola:
+        print("Não há solicitações de autorização de compra para esta escola.")
+        util.timer()
+        util.limpa_tela()
+        return
+    
+    for i, solicitacao in enumerate(autorizacoes_da_escola, start=1):
+        print(f"Solicitação {i}:")
+        print(f"ID da Solicitação: {solicitacao['id']}")
+        print(f"CNPJ da CREDE: {solicitacao['cnpj_crede']}")
+        print(f"Status: {solicitacao['situacao']}")
+        print("Orçamentos:")
+        for j, orcamento in enumerate(solicitacao['orçamentos'], start=1):
+            print(f"  Orçamento {j}:")
+            print(f"    Nome do Produto: {orcamento['nome_produto']}")
+            print(f"    Quantidade: {orcamento['quantidade']}")
+            print(f"    Preço Total: {orcamento['preco']}")
+            print(f"    Fornecedor: {orcamento['fornecedor']}")
+            print(f"    CNPJ do Fornecedor: {orcamento['cnpj_fornecedor']}")
+        print("-" * 40)
+    
+    input("Pressione Enter para voltar ao menu...")
+    util.limpa_tela()

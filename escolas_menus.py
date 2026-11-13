@@ -54,7 +54,7 @@ def menu_principal(cnpj_escola_logada):
         elif opcao == '5':
             escola_autorizacao.solicitar_autorizacao_compra(cnpj_escola_logada)
         elif opcao == '6':
-            escola_autorizacao.visualizar_solicitacoes_compra(cnpj_escola_logada)
+            escola_autorizacao.visualizar_solicitacoes(cnpj_escola_logada)
         elif opcao == '0':
             break
         else:

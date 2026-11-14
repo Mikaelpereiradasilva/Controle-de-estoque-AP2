@@ -31,6 +31,7 @@ def menu_principal(cnpj_escola_logada):
         print("="*50)
         print("Bem-vindo(a) à Escola com CNPJ: ", cnpj_escola_logada)
         print(nome_da_escola, "-", nome_da_crede)
+        escola_autorizacao.mostrar_notificacoes_solicitacoes(cnpj_escola_logada)
         print("\nEscolha uma opção:")
         print("1 - Inserir Novo Produto")
         print("2 - Registrar Retirada de Produto")
@@ -79,7 +80,6 @@ def gerar_id(dados):
     if not dados:
         return 1
     return max(item["id"] for item in dados) + 1
-
 
 
 

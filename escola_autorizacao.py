@@ -154,3 +154,29 @@ def visualizar_solicitacoes(cnpj_escola_logada):
     
     input("Pressione Enter para voltar ao menu...")
     util.limpa_tela()
+
+
+def mostrar_notificacoes_solicitacoes(cnpj_escola_logada):
+    autorizacoes = escolas_menus.carregar_dados(ARQUIVO_COMPRAS)
+    solicitacoes_da_escola = autorizacoes.get(cnpj_escola_logada, [])
+
+    if not solicitacoes_da_escola:
+        return
+
+    print("\n--- Acompanhamento das solicitações ---")
+    for solicitacao in solicitacoes_da_escola:
+        produtos = ", ".join(
+            orcamento.get("nome_produto", "Produto sem nome")
+            for orcamento in solicitacao.get("orçamentos", [])
+        )
+        situacao = solicitacao.get("situacao")
+        if situacao is None:
+            situacao = "Aguardando análise da CREDE"
+        elif situacao == "Reprovada":
+            situacao = "Não aprovada (Reprovada)"
+
+        print(
+            f"Solicitação ID {solicitacao.get('id', 'N/A')} | "
+            f"Produto(s): {produtos or 'Não informado'} | "
+            f"Situação: {situacao}"
+        )
